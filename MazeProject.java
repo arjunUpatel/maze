@@ -287,6 +287,7 @@ public class MazeProject extends JPanel implements KeyListener {
                                 getBottomRightTriangles(front).getRows(), 3);
                         g2.setPaint(getRightPath(front).getRightPaint(front));
                         g2.fillPolygon(p);
+                        g2.drawPolygon(p);
                         if (maze[explorer.getLocation().getRow() - front][explorer.getLocation().getCol() + 1] == ' ') {
                             g2.setColor(Color.BLACK);
                             g2.drawPolygon(p);
@@ -410,6 +411,7 @@ public class MazeProject extends JPanel implements KeyListener {
                                 getBottomRightTriangles(front).getRows(), 3);
                         g2.setPaint(getRightPath(front).getRightPaint(front));
                         g2.fillPolygon(p);
+                        g2.drawPolygon(p);
                         if (maze[explorer.getLocation().getRow() + 1][explorer.getLocation().getCol() + front] == ' ') {
                             g2.setColor(Color.BLACK);
                             g2.drawPolygon(p);
@@ -540,6 +542,7 @@ public class MazeProject extends JPanel implements KeyListener {
                                 getBottomRightTriangles(front).getRows(), 3);
                         g2.setPaint(getRightPath(front).getRightPaint(front));
                         g2.fillPolygon(p);
+                        g2.drawPolygon(p);
                         if (maze[explorer.getLocation().getRow() + front][explorer.getLocation().getCol() - 1] == ' ') {
                             g2.setColor(Color.BLACK);
                             g2.drawPolygon(p);
@@ -666,6 +669,7 @@ public class MazeProject extends JPanel implements KeyListener {
                                 getBottomRightTriangles(front).getRows(), 3);
                         g2.setPaint(getRightPath(front).getRightPaint(front));
                         g2.fillPolygon(p);
+                        g2.drawPolygon(p);
                         if (maze[explorer.getLocation().getRow() - 1][explorer.getLocation().getCol() - front] == ' ') {
                             g2.setColor(Color.BLACK);
                             g2.drawPolygon(p);
