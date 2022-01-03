@@ -83,7 +83,7 @@ public class Wall {
             endG = 5;
             endB = 5;
         }
-        return new GradientPaint(rows[0], cols[0], new Color(r, g, b), rows[0], cols[1], new Color(endR, endG, endB));
+        return new GradientPaint(cols[0], rows[0], new Color(r, g, b), cols[0], rows[2], new Color(endR, endG, endB));
     }
 
     public GradientPaint getCeilingPaint(int n) {
@@ -95,10 +95,6 @@ public class Wall {
             endG = 5;
             endB = 5;
         }
-
-        System.out.println(cols[0]);
-        System.out.println(cols[1]);
-        return new GradientPaint(rows[0], cols[0], new Color(endR, endG, endB), rows[0], cols[1] - 100,
-                new Color(r, g, b));
+        return new GradientPaint(cols[0], rows[0], new Color(r, g, b), cols[0], rows[2], new Color(endR, endG, endB));
     }
 }
