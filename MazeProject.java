@@ -97,17 +97,10 @@ public class MazeProject extends JPanel implements KeyListener {
                 repaint();
             }
             if (e.getKeyCode() == 90) {
-                if (markerCount < 20 && maze[explorer.getLocation().getRow()][explorer.getLocation().getCol()] != 'z') {
+                if (markerCount < 20 && maze[explorer.getLocation().getRow()][explorer.getLocation().getCol()] != 'z'
+                        && maze[explorer.getLocation().getRow()][explorer.getLocation().getCol()] != 'x') {
                     maze[explorer.getLocation().getRow()][explorer.getLocation().getCol()] = 'z';
                     markerCount++;
-                } else {
-
-                    if (maze[explorer.getLocation().getRow()][explorer.getLocation().getCol()] == 'z') {
-                        System.out.println("Marker already placed in location");
-                    }
-                    if (markerCount == 20) {
-
-                    }
                 }
                 repaint();
             }
@@ -147,8 +140,6 @@ public class MazeProject extends JPanel implements KeyListener {
     public void drawMaze2D(Graphics g) {
 
         Graphics2D g2 = (Graphics2D) g;
-        // if(maze[explorer.getLocation().getRow()][explorer.getLocation().getCol()]=='s'){
-
         g2.setColor(Color.BLACK);
         g2.fillRect(0, 0, frame.getWidth(), frame.getHeight());
         g2.setColor(Color.LIGHT_GRAY);
@@ -207,10 +198,11 @@ public class MazeProject extends JPanel implements KeyListener {
             g2.drawString("All markers placed", 700, 70);
         }
         if (teleporterCount == 1) {
-            g2.drawString("All teleporters placed", 700, 90);
+            g2.drawString("All teleporters placed.", 700, 90);
             g2.drawString("Return to teleporter to", 700, 110);
             g2.drawString("remove", 700, 130);
         }
+        repaint();
     }
 
     public void drawMaze3D(Graphics g) {
@@ -320,6 +312,18 @@ public class MazeProject extends JPanel implements KeyListener {
                         } else if (maze[explorer.getLocation().getRow() - front][explorer.getLocation()
                                 .getCol()] == 'z') {
                             g2.setColor(Color.CYAN);
+                            g2.fillPolygon(p);
+                            g2.setColor(Color.BLACK);
+                            g2.drawPolygon(p);
+                        } else if (maze[explorer.getLocation().getRow() - front][explorer.getLocation()
+                                .getCol()] == 's') {
+                            g2.setColor(Color.GREEN);
+                            g2.fillPolygon(p);
+                            g2.setColor(Color.BLACK);
+                            g2.drawPolygon(p);
+                        } else if (maze[explorer.getLocation().getRow() - front][explorer.getLocation()
+                                .getCol()] == 'e') {
+                            g2.setColor(Color.YELLOW);
                             g2.fillPolygon(p);
                             g2.setColor(Color.BLACK);
                             g2.drawPolygon(p);
@@ -449,9 +453,7 @@ public class MazeProject extends JPanel implements KeyListener {
                             g2.fillPolygon(p);
                             g2.setColor(Color.BLACK);
                             g2.drawPolygon(p);
-                        }
-
-                        else {
+                        } else {
                             g2.setPaint(getFloor(front).getFloorPaint(front));
                             g2.fillPolygon(p);
                             g2.setColor(Color.BLACK);
@@ -736,7 +738,7 @@ public class MazeProject extends JPanel implements KeyListener {
             g2.drawString("All markers placed", 700, 70);
         }
         if (teleporterCount == 1) {
-            g2.drawString("All teleporters placed", 700, 90);
+            g2.drawString("All teleporters placed.", 700, 90);
             g2.drawString("Return to teleporter to", 700, 110);
             g2.drawString("remove", 700, 130);
         }
