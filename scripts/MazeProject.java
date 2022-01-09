@@ -1,4 +1,6 @@
+package scripts;
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.BufferedReader;
@@ -46,7 +48,7 @@ public class MazeProject extends JPanel implements KeyListener {
         explorer = new Explorer(new Location(2, 2), dir, size2D, new Color(252, 118, 106));
         walls = new ArrayList<>();
         try {
-            reader = new BufferedReader(new FileReader(new File("MazeFile.txt")));
+            reader = new BufferedReader(new FileReader(new File("maze layouts\\MazeFile.txt")));
             String text = "";
             int i = 0;
             while ((text = reader.readLine()) != null) {
